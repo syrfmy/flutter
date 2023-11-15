@@ -13,7 +13,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
 
   final _formKey = GlobalKey<FormState>();
   String _name = "";
-  int _price = 0;
+  String _author = "";
   String _description = "";
 
   @override
@@ -62,24 +62,22 @@ class _ShopFormPageState extends State<ShopFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Harga",
-                    labelText: "Harga",
+                    hintText: "Penulis",
+                    labelText: "Penulis",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                   onChanged: (String? value) {
                     setState(() {
-                      _price = int.parse(value!);
+                      _author= value!;
                       });
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Harga tidak boleh kosong!";
+                      return "Nama penulis tidak boleh kosong!";
                     }
-                    if (int.tryParse(value) == null) {
-                      return "Harga harus berupa angka!";
-                    }
+
                     return null;
                   },
                 ),
@@ -101,7 +99,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Deskripsi tidak boleh kosong!";
+                      return "Deskripsi buku tidak boleh kosong!";
                     }
                     return null;
                   },
@@ -129,7 +127,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                                   CrossAxisAlignment.start,
                                   children: [
                                     Text('Nama: $_name'),
-                                    Text('Harga: $_price'),
+                                    Text('Penulis: $_author'),
                                     Text('Deskripsi: $_description')
                                   ],
                                 ),

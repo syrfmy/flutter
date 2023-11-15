@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/widgets/left_drawer.dart';
-import 'package:shopping_list/shoplist_form.dart';
+import 'package:shopping_list/screens/shoplist_form.dart';
+import 'package:shopping_list/widgets/shop_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -72,12 +73,7 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class ShopItem {
-  final String name;
-  final IconData icon;
-  final Color cardColor;
-  ShopItem(this.name, this.icon, this.cardColor);
-}
+
 
 class ShopCard extends StatelessWidget {
   final ShopItem item;
